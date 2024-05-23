@@ -1,0 +1,29 @@
+<div class="nav">
+  <div class="container">
+    <div class="nav_layout">
+      <%= link_to "MusicList", "/lists", class: "nav_logo" %>
+      <div class="nav_link_wrap">
+        <%= link_to "Ma liste", "/lists", class: "nav-item" %>
+        <%= link_to "Nouvelle liste", "/lists/new", class: "button" %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="banner">
+  <h1>Créez vos listes de musique</h1>
+  <%= link_to "Nouvelle liste", "/lists/new", class: "button" %>
+</div>
+<div class="lists">
+  <div class="container">
+    <div class="lists_layout">
+      <h2>Ma liste</h2>
+      <div class="u-col-3">
+      <% @lists.each do |list| %>
+        <div class="list_item" style="background-image: url(<%= list.poster_url %>)">
+        <h3><%= link_to list.name, lists_path(list)%></h3>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>
